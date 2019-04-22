@@ -15,7 +15,7 @@ var action = process.argv[2];
 var nodeArgs = process.argv;
 
 //Empty variable for holding user input(movie or song)
-var input = " ";
+var input = "";
 
 // Loop through all the words in the node argument
 // And do a little for-loop magic to handle the inclusion of "+"s
@@ -27,6 +27,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
     else {
         input += nodeArgs[i];
     }
+    console.log(input);
 }
 
 //The switch-case will direct which function gets run.
@@ -34,6 +35,7 @@ switch (action) {
     case "concert-this":
         concertThis();
         break;
+
 
     case "spotify-this-song":
         if (!input === "") {
@@ -67,8 +69,9 @@ function concertThis() {
     axios
         .get(queryUrl)
         .then(function (data) {
-            console.log(data);
 
+ console.log(data);
+         
         })
 
         .catch(function (error) {
@@ -188,12 +191,12 @@ function doWhatItSays() {
 
         if (dataArr.length == 2) {
             (dataArr[0], dataArr[1]);
-            dataArr[0]= action;
-            dataArr[1]=input
+            dataArr[0] = action;
+            dataArr[1] = input
         }
         else if (dataArr.length == 1) {
             (dataArr[0]);
-            dataArr[0]=action;
+            dataArr[0] = action;
         }
 
     });
