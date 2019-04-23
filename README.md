@@ -29,41 +29,35 @@ To retrieve the data that will power this app, requests are sent using the `axio
 Additionally, API keys are needed for Spotify, Bands In Town Artists Events API and OMDP API.  Spotify credentials can be acquired by visiting this link: <https://developer.spotify.com/my-applications/#!/>. This will generate the necessary client **client id** and **client secret**.  The API keys for Bands In Town Artists Events API and OMDP API can be acquired through classroom connections.
 
 ### Deployment
-  *Clone repo
-  *Run npm install
-  *At command prompt run node liri.js <pass in an instruction from above>
+* Clone repo
+* Run npm install
+* At command prompt run node liri.js <pass in an instruction>
 
 # Instructions
-1) node liri.js my-tweets: This will show your last 20 tweets and when they were created at in your terminal/bash window. 
-2) node liri.js spotify
+1) node liri.js concert-this: 
+
+
+2) node liri.js spotify-this-song:
+
+
+3) node liri.js movie-this: 
+
+
+4) node liri.js do-what-it-says:
+
 
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [JavaScript]
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Jennifer Ginelli** - *Initial work* - [jcnimble](https://github.com/jcnimble/jcnimble.github.io.git)
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+*LIRI Tutorial [Watch the Video!](https://www.youtube.com/watch?v=1-k08YfQbec)
+*Bryan esteemed Professor
+*Buzz and Aaron dedicated TAs
