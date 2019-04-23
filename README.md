@@ -94,6 +94,6 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
 ## Acknowledgments
 
-*LIRI Tutorial [Watch the Video!](https://www.youtube.com/watch?v=1-k08YfQbec)
-*Bryan esteemed Professor
-*Buzz and Aaron dedicated TAs
+   * LIRI Tutorial [Watch the Video!](https://www.youtube.com/watch?v=1-k08YfQbec)
+   * Bryan esteemed Professor
+   * Buzz and Aaron dedicated TAs
