@@ -8,7 +8,7 @@ LIRI is a command line node app that takes in parameters and gives back data. Si
 
    * Key information on a Movie  `movie-this`
    
-Additionally, LIRI demonstrates the power of the Node.js File System Module reading a text file and triggering a data response. `do-what-it-says`. As well as logging these responses to a seperate text file.
+Additionally, LIRI demonstrates the power of the Node.js File System Module reading a text file and triggering a data response. `do-what-it-says`. This Module was also used to log movie searches to a text file.
 
 ## Getting Started
 
@@ -56,7 +56,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
      * The album that the song is from
 
-   * If no song is provided, the program will default to "The Sign" by Ace of Base.
+   * If no song is provided, the program will default to "The Sign" by Ace of Base. The Spotify API is not very discerning. To achieve the default, a seperate function was created so only the song "The Sign" by Ace of Base was shown.  Otherwise, it would have been a list of 20 songs with "The Sign" by Ace of Base as #4.
 
 3. `node liri.js movie-this <movie name here>`
 
@@ -74,7 +74,9 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
      * Actors in the movie
 
    * If no movie is provided, the program will output data for the movie 'Mr. Nobody.'
-
+   * Some of these values are not available for all the movies in the OMDB API and it will appear broken.
+   * After completing an in-class activity using "fs.appendFile", I felt confident attempting this function.  I was able to do this successfully with the move-this operation logging these outputs to log.txt. Back to the drawing board on the operations that output multiple objects.
+   
 4. `node liri.js do-what-it-says`
 
    * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
@@ -82,6 +84,8 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
      * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
 
      * The text in random.txt can be edited to prompt others commands like movie-this and concert-this.
+     
+    * The only way I could get this to work successfully was inserting an amended switch function to this function.  I tried creating the original switch function as a global function that I would call within the "do-what-it-says" function -- but that wouldn't work. There may be a "cleaner" way to run this successfully.
 
 ## Built With
 
