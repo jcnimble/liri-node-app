@@ -44,7 +44,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
-2. `node liri.js spotify-this-song '<song name here>'`
+2. `node liri.js spotify-this-song <song name here>`
 
    * This will search the Spotify API for a song and the following information about the songs that meet the search criteria will appear in the terminal:
 
@@ -58,7 +58,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
    * If no song is provided, the program will default to "The Sign" by Ace of Base.
 
-3. `node liri.js movie-this '<movie name here>'`
+3. `node liri.js movie-this <movie name here>`
 
    * This will search the OMDB API for a movie and the following information about the movie meeting the search criteria will appear in the terminal:
    
