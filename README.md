@@ -90,7 +90,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
 ## Authors
 
-* **Jennifer Ginelli** - *Initial work* - [jcnimble](https://github.com/jcnimble/jcnimble.github.io.git)
+* **Jennifer Ginelli** - *Initial work* - [jcnimble](https://jcnimble.github.io/)
 
 ## Acknowledgments
 
