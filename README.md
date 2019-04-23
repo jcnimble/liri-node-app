@@ -26,24 +26,68 @@ To retrieve the data that will power this app, requests are sent using the `axio
 
 ### Prerequisites
 
-Additionally, API keys are needed for Spotify, Bands In Town Artists Events API and OMDP API.  Spotify credentials can be acquired by visiting this link: <https://developer.spotify.com/my-applications/#!/>. This will generate the necessary client **client id** and **client secret**.  The API keys for Bands In Town Artists Events API and OMDP API can be acquired through classroom connections.
+Additionally, API keys are needed for Spotify, Bands In Town Artists Events API and OMDP API.  Spotify credentials can be acquired by visiting this link: <https://developer.spotify.com/my-applications/#!/>. This will generate the necessary  **client id** and **client secret**.  The API keys for Bands In Town Artists Events API and OMDP API can be acquired through classroom connections.
 
 ### Deployment
 * Clone repo
 * Run npm install
-* At command prompt run node liri.js <pass in an instruction>
+* At command prompt run 'node liri.js' and instruction below
 
 # Instructions
-1) node liri.js concert-this: 
+1. `node liri.js concert-this <artist/band name here>`
 
+   * This will search the Bands in Town Artist Events APIfor an artist and render the following information about each event to the terminal:
 
-2) node liri.js spotify-this-song:
+     * Name of the venue
 
+     * Venue location
 
-3) node liri.js movie-this: 
+     * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
+2. `node liri.js spotify-this-song '<song name here>'`
 
-4) node liri.js do-what-it-says:
+   * This will search the Spotify API for a song and the following information about the songs that meet the search criteria will appear in the terminal:
+
+     * Artist(s)
+
+     * The song's name
+
+     * A preview link of the song from Spotify
+
+     * The album that the song is from
+
+   * If no song is provided the program will default to "The Sign" by Ace of Base.
+
+3. `node liri.js movie-this '<movie name here>'`
+
+   * This will output the following information to your terminal/bash window:
+
+     ```
+       * Title of the movie.
+       * Year the movie came out.
+       * IMDB Rating of the movie.
+       * Rotten Tomatoes Rating of the movie.
+       * Country where the movie was produced.
+       * Language of the movie.
+       * Plot of the movie.
+       * Actors in the movie.
+     ```
+
+   * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
+
+     * If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
+
+     * It's on Netflix!
+
+   * You'll use the `axios` package to retrieve data from the OMDB API. Like all of the in-class activities, the OMDB API requires an API key. You may use `trilogy`.
+
+4. `node liri.js do-what-it-says`
+
+   * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+
+     * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
+
+     * Edit the text in random.txt to test out the feature for movie-this and concert-this.
 
 
 
