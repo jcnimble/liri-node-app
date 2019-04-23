@@ -36,7 +36,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 # Instructions
 1. `node liri.js concert-this <artist/band name here>`
 
-   * This will search the Bands in Town Artist Events APIfor an artist and render the following information about each event to the terminal:
+   * This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
      * Name of the venue
 
@@ -56,30 +56,24 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
      * The album that the song is from
 
-   * If no song is provided the program will default to "The Sign" by Ace of Base.
+   * If no song is provided, the program will default to "The Sign" by Ace of Base.
 
 3. `node liri.js movie-this '<movie name here>'`
 
-   * This will output the following information to your terminal/bash window:
+   * This will search the OMDB API for a movie and the following information about the movie meeting the search criteria will appear in the terminal:
+   
+     * Title of the movie
+     * Year the movie came out
+     * IMDB Rating of the movie
+     * Rotten Tomatoes Rating of the movie
+     * IMDB Rating of the movie
+     * Country where the movie was produced
+     * Language of the movie
+     * Plot of the movie
+     * Country where the movie was produced
+     * Actors in the movie
 
-     ```
-       * Title of the movie.
-       * Year the movie came out.
-       * IMDB Rating of the movie.
-       * Rotten Tomatoes Rating of the movie.
-       * Country where the movie was produced.
-       * Language of the movie.
-       * Plot of the movie.
-       * Actors in the movie.
-     ```
-
-   * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
-
-     * If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
-
-     * It's on Netflix!
-
-   * You'll use the `axios` package to retrieve data from the OMDB API. Like all of the in-class activities, the OMDB API requires an API key. You may use `trilogy`.
+   * If no movie is provided, the program will output data for the movie 'Mr. Nobody.'
 
 4. `node liri.js do-what-it-says`
 
@@ -87,9 +81,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
      * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
 
-     * Edit the text in random.txt to test out the feature for movie-this and concert-this.
-
-
+     * The text in random.txt can be edited to prompt others commands like movie-this and concert-this.
 
 ## Built With
 
