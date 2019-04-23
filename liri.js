@@ -4,8 +4,8 @@ var axios = require("axios");
 var Spotify = require("node-spotify-api");
 var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
-// console.log(spotify);
 var fs = require("fs");
+var moment = require('moment');
 
 //The first will be the action
 var action = process.argv[2];
@@ -16,7 +16,6 @@ var nodeArgs = process.argv;
 
 //Empty variable for holding user input(movie or song)
 var input = "";
-
 // Loop through all the words in the node argument
 // And do a little for-loop magic to handle the inclusion of "+"s
 for (var i = 3; i < nodeArgs.length; i++) {
@@ -27,18 +26,17 @@ for (var i = 3; i < nodeArgs.length; i++) {
     else {
         input += nodeArgs[i];
     }
-    console.log(input);
 }
 
 //The switch-case will direct which function gets run.
 switch (action) {
     case "concert-this":
-        concertThis();
+        concertThis(input);
         break;
 
 
     case "spotify-this-song":
-        if (!input === "") {
+        if (input) {
             spotifyThisSong(input);
         } else {
             // If no song provided, default to "The Sign" by Ace of Base.
@@ -47,7 +45,7 @@ switch (action) {
         break;
 
     case "movie-this":
-        if (!input === "") {
+        if (input) {
             movieThis(input);
         } else {
             // If no movie provided, default to "Mr. Nobody"
@@ -61,17 +59,25 @@ switch (action) {
         break;
 }
 
-//if "concert-this" function is called...
-function concertThis() {
+//If "concert-this" function is called...
+function concertThis(artist) {
 
-    var queryUrl = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp";
+    var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
     axios
         .get(queryUrl)
-        .then(function (data) {
+        .then(function (response) {
 
- console.log(data);
-         
+            console.log(response.data[0].venue);
+            var events = response.data;
+            for (var i = 0; i < events.length; i++) {
+                console.log(i + 1);
+                console.log("Venue: " + events[i].venue.name);
+                console.log("Location: " + events[i].venue.city + ", " + events[i].venue.region + " " + events[i].venue.country);
+                console.log("Date: " + moment(events[i].datetime).format("MM/DD/YYYY"));
+                console.log('==================================================');
+            }
+
         })
 
         .catch(function (error) {
@@ -87,10 +93,6 @@ function concertThis() {
             console.log(error.config);
         });
 }
-
-/*     Name of the venue
-    Venue location
-    Date of the Event (use moment to format this as "MM/DD/YYYY") */
 
 
 //spotify-this-song   
@@ -146,14 +148,30 @@ function movieThis(movie) {
         .get(queryUrl)
         .then(function (response) {
 
-            console.log('Title: ' + response.data.Title);
-            console.log('Year: ' + response.data.Year);
-            console.log('IMDB Rating: ' + response.data.imdbRating);
-            console.log('Rotten Tomato Rating: ' + response.data.Ratings[1].Value);
-            console.log('Country: ' + response.data.Country);
-            console.log('Language: ' + response.data.Language);
-            console.log('Plot: ' + response.data.Plot);
-            console.log('Actors: ' + response.data.Actors);
+            if (movie === "Mr. Nobody") {
+                console.log('Title: ' + response.data.Title);
+                console.log('Year: ' + response.data.Year);
+                console.log('IMDB Rating: ' + response.data.imdbRating);
+                console.log('Rotten Tomato Rating: ' + response.data.Ratings[1].Value);
+                console.log('Country: ' + response.data.Country);
+                console.log('Language: ' + response.data.Language);
+                console.log('Plot: ' + response.data.Plot);
+                console.log('Actors: ' + response.data.Actors);
+                console.log("If you haven't watched 'Mr. Nobody' then you should: http://www.imdb.com/title/tt0485947/");
+                console.log("It's on Netflix!");
+                console.log('==================================================');
+            }
+            else {
+                console.log('Title: ' + response.data.Title);
+                console.log('Year: ' + response.data.Year);
+                console.log('IMDB Rating: ' + response.data.imdbRating);
+                console.log('Rotten Tomato Rating: ' + response.data.Ratings[1].Value);
+                console.log('Country: ' + response.data.Country);
+                console.log('Language: ' + response.data.Language);
+                console.log('Plot: ' + response.data.Plot);
+                console.log('Actors: ' + response.data.Actors);
+                console.log('==================================================');
+            }
 
         })
         .catch(function (error) {
@@ -177,27 +195,57 @@ function doWhatItSays() {
     // It's important to include the "utf8" parameter or the code will provide stream data (garbage)
     // The code will store the contents of the reading inside the variable "data"
     fs.readFile("random.txt", "utf8", function (error, data) {
-
         // If the code experiences any errors it will log the error to the console.
         if (error) {
             return console.log(error);
         }
-
-        // We will then print the contents of data
-        // console.log(data);
-
         // Then split it by commas (to make it more readable)
         var dataArr = data.split(",");
 
         if (dataArr.length == 2) {
             (dataArr[0], dataArr[1]);
-            dataArr[0] = action;
-            dataArr[1] = input
+            //This defines the action
+            var action = dataArr[0];
+            var y = dataArr[1];
+            var z = y.replace(/\"/g, "");
+            for (var i = 0; i < z.length; i++) {
+                z = z.replace(" ", "+")
+            }
+            //This creates a readable input
+            var input = z.split(' ').join('+');
+            doRun();
         }
         else if (dataArr.length == 1) {
-            (dataArr[0]);
-            dataArr[0] = action;
+            //This defines the action with shorter array
+            var action = dataArr[0];
+            doRun();
         }
+        //This amended switch function from eariler allows any of the directives to be processed from the random.txt
+        function doRun() {
+            switch (action) {
+                case "concert-this":
+                    concertThis(input);
+                    break;
 
+                case "spotify-this-song":
+                    if (input) {
+                        spotifyThisSong(input);
+                    } else {
+                        // If no song provided, default to "The Sign" by Ace of Base.
+                        spotifyTheSign();
+                    }
+                    break;
+
+                case "movie-this":
+                    if (input) {
+                        movieThis(input);
+                    } else {
+                        // If no movie provided, default to "Mr. Nobody"
+                        movieThis("Mr. Nobody");
+                    }
+                    break;
+            };
+        }
     });
 }
+
