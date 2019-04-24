@@ -81,7 +81,7 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
    * If no movie is provided, the program will output data for the movie 'Mr. Nobody.'
    * Some of these values are not available for all the movies in the OMDB API and it will appear broken.
-   * After completing an in-class activity using "fs.appendFile", I felt confident attempting this function.  I was able to do this successfully with the move-this operation logging these outputs to log.txt. Back to the drawing board on the operations that output multiple objects.
+   * After completing an in-class activity using "fs.appendFile", I felt confident attempting this function.  I was able to do this successfully with the movie-this operation logging these outputs to log.txt. Back to the drawing board on the operations that output multiple objects.
    
 4. `node liri.js do-what-it-says`
 
