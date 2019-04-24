@@ -113,11 +113,11 @@ function spotifyThisSong(song) {
                 console.log('Album:' + songs[i].album.name);
                 console.log('==================================================');
             }
+
         })
         .catch(function (err) {
             console.log(err);
         });
-
 };
 //Put this is so the exact song "The Sign" by Ace of Base would show and only that entry
 function spotifyTheSign() {
@@ -147,45 +147,37 @@ function movieThis(movie) {
     axios
         .get(queryUrl)
         .then(function (response) {
+            var divider = "\n------------------------------------------------------------\n\n";
+            // showData ends up being the string containing the show data we will print to the console
+            var showData = [
+                'Title: ' + response.data.Title,
+                'Year: ' + response.data.Year,
+                'IMDB Rating: ' + response.data.imdbRating,
+                'Rotten Tomato Rating: ' + response.data.Ratings[1].Value,
+                'Country: ' + response.data.Country,
+                'Language: ' + response.data.Language,
+                'Plot: ' + response.data.Plot,
+                'Actors: ' + response.data.Actors
+            ].join("\n\n");
 
-            if (movie === "Mr. Nobody") {
-                console.log('Title: ' + response.data.Title);
-                console.log('Year: ' + response.data.Year);
-                console.log('IMDB Rating: ' + response.data.imdbRating);
-                console.log('Rotten Tomato Rating: ' + response.data.Ratings[1].Value);
-                console.log('Country: ' + response.data.Country);
-                console.log('Language: ' + response.data.Language);
-                console.log('Plot: ' + response.data.Plot);
-                console.log('Actors: ' + response.data.Actors);
-                console.log("If you haven't watched 'Mr. Nobody' then you should: http://www.imdb.com/title/tt0485947/");
-                console.log("It's on Netflix!");
-                console.log('==================================================');
-            }
-            else {
-                console.log('Title: ' + response.data.Title);
-                console.log('Year: ' + response.data.Year);
-                console.log('IMDB Rating: ' + response.data.imdbRating);
-                console.log('Rotten Tomato Rating: ' + response.data.Ratings[1].Value);
-                console.log('Country: ' + response.data.Country);
-                console.log('Language: ' + response.data.Language);
-                console.log('Plot: ' + response.data.Plot);
-                console.log('Actors: ' + response.data.Actors);
-                console.log('==================================================');
-            }
-
+            // Append showData and the divider to log.txt, print showData to the console
+            fs.appendFile("log.txt", showData + divider, function (err) {
+                if (err) throw err;
+                console.log(showData + divider);
+            });
         })
-        .catch(function (error) {
-            if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            } else if (error.request) {
-                console.log(error.request);
-            } else {
-                console.log("Error", error.message);
-            }
-            console.log(error.config);
-        });
+        .catch (function (error) {
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        } else if (error.request) {
+            console.log(error.request);
+        } else {
+            console.log("Error", error.message);
+        }
+        console.log(error.config);
+    });
 
 }
 
