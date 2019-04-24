@@ -36,6 +36,8 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 # Instructions
 1. `node liri.js concert-this <artist/band name here>`
 
+![](concert_this.gif)
+
    * This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
      * Name of the venue
