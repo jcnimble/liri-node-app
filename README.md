@@ -48,6 +48,8 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
 
 2. `node liri.js spotify-this-song <song name here>`
 
+![](spotify_this_song.gif)
+
    * This will search the Spotify API for a song and the following information about the songs that meet the search criteria will appear in the terminal:
 
      * Artist(s)
@@ -61,6 +63,8 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
    * If no song is provided, the program will default to "The Sign" by Ace of Base. The Spotify API is not very discerning. To achieve the default, a seperate function was created so only the song "The Sign" by Ace of Base was shown.  Otherwise, it would have been a list of 20 songs with "The Sign" by Ace of Base as #4.
 
 3. `node liri.js movie-this <movie name here>`
+
+![](movie_this.gif)
 
    * This will search the OMDB API for a movie and the following information about the movie meeting the search criteria will appear in the terminal:
    
@@ -80,6 +84,8 @@ Additionally, API keys are needed for Spotify, Bands In Town Artists Events API 
    * After completing an in-class activity using "fs.appendFile", I felt confident attempting this function.  I was able to do this successfully with the move-this operation logging these outputs to log.txt. Back to the drawing board on the operations that output multiple objects.
    
 4. `node liri.js do-what-it-says`
+
+![](do_what_it_says.gif)
 
    * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
